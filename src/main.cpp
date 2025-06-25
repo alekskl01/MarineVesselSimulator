@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <array>
 #include <vector>
 #include <string>
 
@@ -10,28 +9,26 @@
 
 
 int main() {
-    constexpr int num_vessels = 2;
-
-    constexpr std::array<VesselSpec, num_vessels> specs = {{
-    {
-        .x = 0.0,
-        .y = 0.0,
-        .heading = 0.0,
-        .vx = 2.0,
-        .vy = 0.0,
-        .vheading = 0.2,
-        .shape = HullShape::Rectangle
-    },
-    {
-        .x = 5.0,
-        .y = 2.0,
-        .heading = 1.0,
-        .vx = 0.5,
-        .vy = 1.0,
-        .vheading = -0.1,
-        .shape = HullShape::TriangularBow
-    }
-    }};
+    const std::vector<VesselSpec> specs = {
+        {
+            .x = 0.0,
+            .y = 0.0,
+            .heading = 0.0,
+            .vx = 2.0,
+            .vy = 0.0,
+            .vheading = 0.2,
+            .shape = HullShape::Rectangle
+        },
+        {
+            .x = 5.0,
+            .y = 2.0,
+            .heading = 1.0,
+            .vx = 0.5,
+            .vy = 1.0,
+            .vheading = -0.1,
+            .shape = HullShape::TriangularBow
+        }
+    };
 
     std::vector<Vessel> vessels;
     for (const auto& spec : specs) {
