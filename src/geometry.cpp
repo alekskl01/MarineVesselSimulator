@@ -8,7 +8,7 @@
 
 
 bool overlaps(const std::vector<Point>& poly1, const std::vector<Point>& poly2) {
-    // Placeholder for polygon overlap detection logic
+    // TODO: Implement algorithm to check if two polygons overlap
     return false;
 }
 
