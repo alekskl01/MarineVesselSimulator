@@ -9,7 +9,7 @@
 
 
 int main() {
-    std::vector<VesselSpec> specs = {
+    const std::vector<VesselSpec> specs = {
         {
             .x = 0.0,
             .y = 0.0,
