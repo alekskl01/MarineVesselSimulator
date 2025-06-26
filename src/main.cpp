@@ -30,18 +30,13 @@ int main() {
         }
     };
 
-    std::vector<Vessel> vessels;
+    Simulator simulator(0.05);
     for (const auto& spec : specs) {
         try {
-            vessels.push_back(create_vessel_from_spec(spec));
+            simulator.add_vessel(create_vessel_from_spec(spec));
         } catch (const std::exception& e) {
             std::cerr << "[Error creating vessel]: " << e.what() << std::endl;
         }
-    }
-
-    Simulator simulator(0.05);
-    for (auto& v : vessels) {
-        simulator.add_vessel(v); 
     }
 
     std::cout << "Welcome to the Vessel Simulator!" << std::endl;
