@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "geometry.hpp"
 #include "hull_shape.hpp"
@@ -31,4 +32,4 @@ protected:
     const std::vector<Point> extent_;
 };
 
-Vessel create_vessel_from_spec(const VesselSpec& spec);
+std::unique_ptr<Vessel> create_vessel_from_spec(const VesselSpec& spec);

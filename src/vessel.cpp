@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <vector>
+#include <memory>
 
 #include "vessel.hpp"
 #include "hull_shape.hpp"
@@ -36,7 +37,7 @@ std::vector<Point> Vessel::get_extent_polygon() const {
 // =======================
 
 
-Vessel create_vessel_from_spec(const VesselSpec& spec) {
+std::unique_ptr<Vessel> create_vessel_from_spec(const VesselSpec& spec) {
     std::vector<Point> extent;
     try {
         extent = read_polygon_from_file(get_hull_shape_path(spec.shape));
@@ -50,7 +51,7 @@ Vessel create_vessel_from_spec(const VesselSpec& spec) {
         0.0, 0.0, 0.0
     };
 
-    return Vessel(kinematic, extent);
+    return std::make_unique<Vessel>(kinematic, extent);
 }
 
 
